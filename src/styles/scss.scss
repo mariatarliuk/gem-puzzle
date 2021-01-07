@@ -1,0 +1,235 @@
+@import "roboto.css";
+@import "~normalize.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(174,170,238);
+    background: linear-gradient(87deg, rgba(174,170,238,1) 0%, rgba(172,241,255,0.9671218829328606) 100%);
+}
+
+.dark {
+    opacity: .2;
+}
+
+.top-menu {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: azure;
+
+    .audio:hover {
+        cursor: pointer;
+    }
+
+    .menu:hover {
+        cursor: pointer;
+        text-shadow: 0 0 2px #fff, -1px -1px 0 #c4a0f5, -2px -2px 1px #dcb1ff, -2px -2px 2px #282a22;
+    }
+
+    .turn span {
+        font-size: 1.5rem;
+    }
+
+    .timer {
+
+        span {
+            display: inline-block;
+            width: 3rem;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.field-block {
+    margin-top: 10%;
+}
+
+.field {
+    padding: 5px;
+    width: 25rem;
+    height: 25rem;
+    margin: 0 auto;
+    position: relative;
+    background-size: cover;
+
+    .pic {
+        display: flex;
+        justify-content: end;
+        align-items: start;
+        padding: 5px;
+        font-size: 1rem;
+        color: rgb(48, 38, 68);
+        border-radius: 3px;
+        position: absolute;
+        background-size:650px ;
+        background-image: url('../assets/img/image11.jpg');
+        transition: all .5s;
+        border: 1px solid rgb(156, 174, 255);
+    }
+
+    .draggable {
+        opacity: .5;
+    }
+
+        &:hover {
+            cursor: pointer;
+        }
+}
+
+.modal {
+    width: 30%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    background: rgba(123, 169, 253, 0.5);
+    position: absolute;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    font-size: 1.5rem;
+
+    .save {
+        text-align: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .button {
+        margin: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3rem;
+        color: white;
+        background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)), linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)), linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)), linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)), linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+        background-repeat: no-repeat;
+        background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+        background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+        box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+
+        &:hover {
+            cursor: pointer;
+            transition: .5s linear;
+            background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+          }
+
+        &:active {
+            top: 1px;
+        }
+    }
+
+    .input-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        color: rgb(227, 250, 255);
+    }
+
+    .size {
+        margin: 3px;
+        width: 47%;
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 70%), linear-gradient(to right, white, rgba(255, 255, 255, 0) 1%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3)), linear-gradient(to right, #6e6b19, rgba(255, 255, 255, 0.9) 45%, rgba(125, 125, 125, 0.5)), linear-gradient(to right, #888535, rgba(255, 255, 255, 0.9) 80%, rgba(125, 125, 125, 0.5)), linear-gradient(to right, #000000, rgba(255, 255, 255, 0.9) 45%, rgba(223, 190, 170, 0.5)), linear-gradient(to right, #000000, rgba(255, 255, 255, 0.9) 45%, rgba(223, 190, 170, 0.5));
+    }
+}
+
+.leadPop {
+    position: absolute;
+    z-index: 1000;
+    width: 30%;
+    height: 52%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 17px;
+    background: rgba(181, 52, 255, 0.9);
+    box-shadow: 7px 4px 19px -4px #000000;
+    color: #d6ecff;
+
+    .close {
+        position: absolute;
+        top: 2px;
+        right: 11px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    div {
+        margin: 1%;
+        text-align: center;
+    }
+
+    .leadNull {
+        margin: 11%;
+        display: none;
+    }
+}
+
+
+
+.finish {
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    background: rgba(181, 52, 255, 0.9);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 11%;
+
+    .close {
+    position: absolute;
+    top: 5px;
+    right: 16px;
+    }
+}
+
+@media screen and (max-width: 705px) {
+    .field .pic {
+        width: 90px;
+        height: 90px;
+    }
+
+    .modal {
+        width: 53%;
+    }
+
+    .leadPop {
+        width: 53%;
+    }
+
+    .finish {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .field .pic {
+        width: 90px;
+        height: 90px;
+    }
+
+    .modal {
+        width: 55%;
+    }
+
+
+}
